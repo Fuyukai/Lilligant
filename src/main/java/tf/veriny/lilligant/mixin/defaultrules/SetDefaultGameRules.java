@@ -27,6 +27,7 @@ abstract class SetDefaultGameRules {
             RULE_TYPES.put(GameRules.DO_MOB_SPAWNING, GameRules.BooleanRule.create(false));
             RULE_TYPES.put(GameRules.KEEP_INVENTORY, GameRules.BooleanRule.create(true));
             RULE_TYPES.put(GameRules.ANNOUNCE_ADVANCEMENTS, GameRules.BooleanRule.create(false));
+            RULE_TYPES.put(GameRules.DO_WEATHER_CYCLE, GameRules.BooleanRule.create(false));
         }
     }
 }
