@@ -12,7 +12,7 @@ import net.minecraft.enchantment.Enchantments
 import net.minecraft.entity.EquipmentSlot
 
 /**
- * An enchantment that can be placed on a helmet to remove thee speed penalty in midair.
+ * An enchantment that can be placed on a helmet to remove the speed penalty in midair.
  */
 public object AerialAffinityEnchantment : Enchantment(
     Rarity.RARE,
@@ -20,7 +20,7 @@ public object AerialAffinityEnchantment : Enchantment(
     arrayOf(EquipmentSlot.HEAD)
 ) {
 
-    // identical algos so justt call it directly!
+    // identical algos so just call it directly!
     override fun getMinPower(level: Int): Int = 1
     override fun getMaxPower(level: Int): Int = Enchantments.AQUA_AFFINITY.getMaxPower(level)
 

@@ -3,3 +3,8 @@
 # The list of entities to block, e.g. ``["minecraft:villager"]``.
 blockedEntities = [
 ]
+
+# If True, beehives will no longer attempt to spawn bees.
+# Toggleable separately from the entity blocker, but you should always enable this if bees are
+# in the above list.
+blockBeeSpawning = false

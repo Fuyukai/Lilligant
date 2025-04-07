@@ -14,7 +14,10 @@ import net.minecraft.util.Identifier
 
 public data class EntityBlockerConfig(
     /** The list of entity IDs to block from creation. */
-    public val blockedEntities: List<Identifier>
+    public val blockedEntities: List<Identifier>,
+
+    /** If True, beehives will no longer attempt to spawn bees. */
+    public val blockBeeSpawning: Boolean,
 ) {
     /**
      * Checks if the provided [EntityType] should be blocked from spawning.
