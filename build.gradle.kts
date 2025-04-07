@@ -8,16 +8,17 @@
 
 
 plugins {
-    kotlin("jvm").version("2.0.0")
+    kotlin("jvm").version("2.1.20")
     id("maven-publish")
     id("com.github.ben-manes.versions").version("0.51.0")
-    id("fabric-loom").version("1.5.7")
+    id("fabric-loom").version("1.10.5")
     id("com.palantir.git-version").version("3.1.0")
 }
 
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
+    maven("https://maven.quiltmc.org/repository/release")
 }
 
 group = "tf.veriny.unova"
@@ -51,9 +52,9 @@ dependencies {
     api(include("cc.ekblad:4koma:1.2.0")!!)
     runtimeOnly(include("cc.ekblad.konbini:konbini-jvm:0.1.3")!!)
 
-    modImplementation("net.fabricmc:fabric-loader:0.14.22")
+    modImplementation("net.fabricmc:fabric-loader:0.16.12")
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.90.0+1.20.1")
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.17+kotlin.1.9.22")
+    modImplementation("net.fabricmc:fabric-language-kotlin:1.13.2+kotlin.2.1.20")
 
     modLocalRuntime("com.ptsmods:devlogin:3.5")
 }
