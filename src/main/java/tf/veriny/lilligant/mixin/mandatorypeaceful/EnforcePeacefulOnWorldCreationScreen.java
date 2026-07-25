@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import tf.veriny.lilligant.config.LilligantConfig;
 
 import java.nio.file.Path;
 import java.util.Optional;
@@ -33,24 +32,20 @@ public abstract class EnforcePeacefulOnWorldCreationScreen {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     void ll$setDifficultyToPeaceful(Path worldSavesPath, WorldCreationContext context, Optional defaultWorldType, OptionalLong seed, CallbackInfo ci) {
-        if (LilligantConfig.INSTANCE.getContentConfig().getForcePeaceful()) {
-            this.difficulty = Difficulty.PEACEFUL;
-        }
+        this.difficulty = Difficulty.PEACEFUL;
     }
 
     @Inject(method = "setDifficulty", at = @At("HEAD"), cancellable = true)
     void ll$preventSetDifficultyCalls(Difficulty difficulty, CallbackInfo ci) {
-        if (LilligantConfig.INSTANCE.getContentConfig().getForcePeaceful()) {
-            this.difficulty = Difficulty.PEACEFUL;
-            this.generate();
-            ci.cancel();
-        }
+        this.difficulty = Difficulty.PEACEFUL;
+        this.generate();
+        ci.cancel();
     }
 
     @Inject(method = "setGameMode", at = @At("HEAD"), cancellable = true)
     void ll$preventSettingHardcore(WorldCreator.GameMode mode, CallbackInfo ci) {
         // cycle along to creative instead
-        if (LilligantConfig.INSTANCE.getContentConfig().getForcePeaceful() && mode == WorldCreator.GameMode.HARDCORE) {
+        if (mode == WorldCreator.GameMode.HARDCORE) {
             this.gameMode = WorldCreator.GameMode.CREATIVE;
             this.generate();
             ci.cancel();

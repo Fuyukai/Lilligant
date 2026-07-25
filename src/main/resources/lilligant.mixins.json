@@ -1,34 +1,27 @@
 {
-  "package": "tf.veriny.lilligant.mixin",
-  "minVersion": "0.8.5",
-  "required": true,
-  "mixins": [
-    "defaultrules.SetDefaultGameRules",
-    "deletespawners.MakeMobSpawnersRemoveThemselves",
-    "dragon.PreventDragonBeingAdded",
-    "enchant.AddEnchantmentInterceptorsToHelper",
-    "enchant.ImplAerialAffinity",
-    "entityblock.BlockBeehiveSpam",
-    "entityblock.DontAllowAddingEntities",
-    "flowerplanting.AddMoreGenericFlowerPlantingTag",
-    "mandatorypeaceful.EnforcePeacefulInGame",
-    "peai.ImplPEAIMiningSpeed",
-    "peai.ImplPEAISuitableFor",
-    "portalblock.DestroyExistingPortals",
-    "portalblock.InterceptPortalCreation",
-    "recipebook.VaporiseServerSideRecipeBook",
-    "sniffer.MakeSnifferCooldownConfigurable",
-    "sweetberrybush.SweetBerriesDontSlow"
-  ],
-  "client": [
-    "jvmargs.InjectArgumentsWarningScreen",
-    "langoverride.HijackTranslationStorage",
-    "mandatorypeaceful.EnforcePeacefulOnWorldCreationScreen",
-    "mandatorypeaceful.LockDifficultyButtonOnWorldCreateScreen",
-    "narrator.DontSpamNarratorErrors",
-    "nohunger.RemoveHungerBar",
-    "onwayland.NullifySetIcon",
-    "onwayland.SetWaylandAppId",
-    "recipebook.RemoveClientSideBookWidget"
+    "package": "tf.veriny.lilligant.mixin",
+    "minVersion": "0.8.5",
+    "required": true,
+    "mixins": [
+        "defaultrules.SetDefaultGameRules",
+        "dragon.PreventDragonBeingAdded",
+        "durability.MakeToolsMoreDurable",
+        "enchant.AddEnchantmentInterceptorsToHelper",
+        "enchant.ImplAerialAffinity",
+        "flowerplanting.AddMoreGenericFlowerPlantingTag",
+        "mandatorypeaceful.EnforcePeacefulInGame",
+        "recipebook.VaporiseServerSideRecipeBook",
+        "sweetberrybush.SweetBerriesDontSlow"
+    ],
+    "client": [
+        "jvmargs.InjectArgumentsWarningScreen",
+        "langoverride.HijackTranslationStorage",
+        "mandatorypeaceful.EnforcePeacefulOnWorldCreationScreen",
+        "mandatorypeaceful.LockDifficultyButtonOnWorldCreateScreen",
+        "narrator.DontSpamNarratorErrors",
+        "nohunger.RemoveHungerBar",
+        "onwayland.NullifySetIcon",
+        "onwayland.SetWaylandAppId",
+        "recipebook.RemoveClientSideBookWidget"
   ]
 }

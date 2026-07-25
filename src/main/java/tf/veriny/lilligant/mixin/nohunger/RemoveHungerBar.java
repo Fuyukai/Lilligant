@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  */
 @Mixin(InGameHud.class)
 abstract class RemoveHungerBar {
-    @Shadow @Final private MinecraftClient client;
+    @Shadow @Final protected MinecraftClient client;
 
     private RemoveHungerBar() {}
 

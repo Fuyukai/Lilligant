@@ -6,8 +6,6 @@
 
 package tf.veriny.lilligant.pebkac;
 
-import net.fabricmc.api.EnvType
-import net.fabricmc.api.Environment
 import net.minecraft.client.font.MultilineText
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.screen.WarningScreen
@@ -17,7 +15,6 @@ import net.minecraft.text.CommonTexts
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-@Environment(EnvType.CLIENT)
 public class IdiotJvmArgumentsScreen(private val nextScreen: Screen) : WarningScreen(
     TITLE, BODY, NARRATION,
 ) {

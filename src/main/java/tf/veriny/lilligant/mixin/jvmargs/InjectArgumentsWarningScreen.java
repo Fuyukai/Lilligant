@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import tf.veriny.lilligant.pebkac.IdiotJvmArgsEntrypoint;
+import tf.veriny.lilligant.MakeUp;
 import tf.veriny.lilligant.pebkac.IdiotJvmArgumentsScreen;
 
 @Mixin(MinecraftClient.class)
@@ -32,7 +32,7 @@ public abstract class InjectArgumentsWarningScreen {
 
     @Inject(method = "setInitialScreen", at = @At("HEAD"), cancellable = true)
     void ll$switchToArgumentsWarningScreen(RealmsClient realmsClient, ResourceReload resourceReload, RunArgs.QuickPlay quickPlay, CallbackInfo ci) {
-        var args = IdiotJvmArgsEntrypoint.Companion.getPEBKAC_ARGS();
+        var args = MakeUp.INSTANCE.getPEBKAC_ARGS();
         if (!args.isEmpty()) {
             if (this.options.onboardAccessibility) {
                 setScreen(new IdiotJvmArgumentsScreen(new AccessibilityOnboardingScreen(options)));

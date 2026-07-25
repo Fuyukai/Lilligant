@@ -6,7 +6,7 @@
 
 package tf.veriny.lilligant.pack
 
-import net.fabricmc.loader.api.FabricLoader
+import net.minecraftforge.fml.loading.FMLPaths
 import kotlin.io.path.div
 import kotlin.io.path.exists
 import kotlin.io.path.readLines
@@ -30,7 +30,7 @@ public data class KamuidromeMetadata(
          * Loads the Kamuidrome metadata from the Minecraft directory.
          */
         private fun load(): KamuidromeMetadata? {
-            val baseDir = FabricLoader.getInstance().gameDir
+            val baseDir = FMLPaths.GAMEDIR.get()
             val metadata = baseDir / "kamuidrome.metadata"
             if (!metadata.exists()) return null
 

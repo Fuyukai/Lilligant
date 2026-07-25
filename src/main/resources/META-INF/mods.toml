@@ -1,0 +1,28 @@
+modLoader = "klf"
+loaderVersion = "[1,)"
+#issueTrackerURL = ""
+license = "MPL-2.0"
+
+[[mods]]
+modId = "lilligant"
+version = "${version}"
+displayName = "Lilligant"
+authors = "Lura Skye"
+description = '''
+To me-- Tyrfing S!
+'''
+logoFile = "assets/lilligant/icon.png"
+
+[[dependencies.lilligant]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.lilligant]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"

@@ -18,24 +18,30 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 /**
  * Prevents the Ender Dragon from even being added to the world.
  */
 @Mixin(EnderDragonFight.class)
 public abstract class PreventDragonBeingAdded {
-    @Shadow @Final private ServerWorld world;
+    @Shadow
+    @Final
+    private ServerWorld world;
 
-    @Shadow public abstract void dragonKilled(EnderDragonEntity dragon);
+    @Shadow
+    public abstract void dragonKilled(EnderDragonEntity dragon);
 
-    @Shadow protected abstract void generateEndPortal(boolean previouslyKilled);
+    @Shadow
+    protected abstract void generateEndPortal(boolean previouslyKilled);
 
-    @Shadow protected abstract void generateNewEndGateway();
+    @Shadow
+    protected abstract void generateNewEndGateway();
 
-    @Shadow private boolean dragonKilled;
+    @Shadow
+    private boolean dragonKilled;
 
-    @Shadow private boolean previouslyKilled;
+    @Shadow
+    private boolean previouslyKilled;
 
     /**
      * Prevents the dragon from even being added to the entity list.
@@ -53,13 +59,12 @@ public abstract class PreventDragonBeingAdded {
      * Auto-kills the dragon to reset the fight.
      */
     @Inject(
-        method = "createDragon",
-        at = @At("TAIL"),
-        locals = LocalCapture.CAPTURE_FAILHARD
+            method = "createDragon",
+            at = @At("TAIL"),
+            cancellable = true
     )
     void ll$autoKillDragon(
-        CallbackInfoReturnable<EnderDragonEntity> cir,
-        EnderDragonEntity enderDragonEntity
+            CallbackInfoReturnable<EnderDragonEntity> cir
     ) {
         // normal dragon logic won't run, so forcibly spawn the portals.
         if (this.world.getDifficulty() == Difficulty.PEACEFUL) {
@@ -68,6 +73,7 @@ public abstract class PreventDragonBeingAdded {
             this.dragonKilled = true;
             this.generateEndPortal(true);
             this.generateNewEndGateway();
+            cir.setReturnValue(null);
         }
     }
 }

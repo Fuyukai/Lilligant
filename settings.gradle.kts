@@ -8,11 +8,16 @@
 
 pluginManagement {
     repositories {
-        gradlePluginPortal()
-
         maven(url = "https://maven.fabricmc.net/")
+        maven(url = "https://maven.architectury.dev/")
+        maven(url = "https://files.minecraftforge.net/maven/")
+        mavenCentral()
+        gradlePluginPortal()
     }
 }
 
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention").version("1.0.0")
+}
 
 rootProject.name = "lilligant"
